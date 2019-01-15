@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{ (!user.id) ? 'Cadastrar' : 'Perfil' }}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form>
+        <ion-item>
+            <ion-input placeholder="Nome" type="text" [(ngModel)]="user.name" name="name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-input placeholder="Email" type="text" [(ngModel)]="user.email" name="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-input placeholder="Senha" type="password" [(ngModel)]="user.password" name="password"></ion-input>
+        </ion-item>
+
+        <div padding>
+            <button ion-button full round icon-start color="secondary">
+                <ion-icon name="{{ (!user.id) ? 'md-add' : 'ios-create-outline'}}"></ion-icon>
+                {{ (!user.id) ? 'Cadastrar' : 'Editar perfil' }}
+            </button>
+        </div>
+    </form>
+
+</ion-content>

@@ -8,19 +8,34 @@
 </ion-header>
 
 <ion-content padding>
-    <h3>Bem vindo ao SAPO!</h3>
+    <ion-card *ngIf="!env.project">
+        <ion-card-header>
+            Bem vindo ao SAPO
+        </ion-card-header>
+        <ion-card-content>
+            <p>
+                O SAPO (<b>S</b>istema de <b>A</b>utomatização de <b>P</b>onto <b>O</b>nline), irá te auxiliar a gerenciar o tempo dedicado em cada projeto.
+            </p>
+        </ion-card-content>
+    </ion-card>
 
-    <p>
-        O SAPO (<b>S</b>istema de <b>A</b>utomatização de <b>P</b>onto <b>O</b>nline), irá te auxiliar a gerenciar o tempo dedicado em cada projeto.
-    </p>
+    <ion-card *ngIf="env.project">
+        <ion-card-header>
+            Projeto {{ env.project.name }}
+        </ion-card-header>
+        <ion-card-content>
+            <p>
+                {{ env.project.description }}
+            </p>
+        </ion-card-content>
+    </ion-card>
 
-    <p>
-        Indique uma ação a ser executada:
-    </p>
+    <div *ngIf="env.project" padding>
+        <button ion-button full color="primary" padding round>Iniciar trabalho</button>
+        <button ion-button full color="light" padding round style="margin-top: 15px">Finalizar trabalho</button>
+    </div>
 
-    <button ion-button full color="primary">Começar a trabalhar</button>
-
-    <button ion-button full color="light">Terminar de trabalhar</button>
-
-    <button ion-button secondary menuToggle>Toggle Menu</button>
+    <div *ngIf="!env.project" padding>
+        <button ion-button full color="secondary" padding round (click)="openProjectPage()">Criar projeto</button>
+    </div>
 </ion-content>

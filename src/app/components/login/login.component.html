@@ -1,0 +1,25 @@
+<ion-content padding>
+
+    <form>
+        <ion-item>
+            <ion-input placeholder="Email" type="text" [(ngModel)]="user.email" name="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-input placeholder="Senha" type="password" [(ngModel)]="user.password" name="password"></ion-input>
+        </ion-item>
+
+        <div padding>
+            <button ion-button full round icon-start (click)="login()">
+                <ion-icon name="md-log-in"></ion-icon>
+                Login
+            </button>
+
+            <button ion-button full round icon-start color="secondary" (click)="openRegisterPage()">
+                <ion-icon name="md-add"></ion-icon>
+                Cadastrar
+            </button>
+        </div>
+    </form>
+
+</ion-content>

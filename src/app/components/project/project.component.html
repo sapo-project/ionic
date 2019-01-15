@@ -1,0 +1,30 @@
+<ion-header>
+        <ion-navbar>
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+            <ion-title>Projeto</ion-title>
+        </ion-navbar>
+    </ion-header>
+
+    <ion-content padding>
+
+        <form>
+            <ion-item>
+                <ion-input placeholder="Nome do projeto" type="text" [(ngModel)]="project.name" name="name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-textarea placeholder="Descrição" [(ngModel)]="project.description" name="description"></ion-textarea>
+            </ion-item>
+
+            <div padding>
+                <button ion-button full round icon-start color="secondary">
+                    <ion-icon name="{{ (!project.id) ? 'md-add' : 'ios-create-outline'}}"></ion-icon>
+                    {{ (!project.id) ? 'Cadastrar projeto' : 'Editar projeto' }}
+                </button>
+            </div>
+        </form>
+
+    </ion-content>
+    
