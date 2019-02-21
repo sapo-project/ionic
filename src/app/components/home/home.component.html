@@ -31,8 +31,60 @@
     </ion-card>
 
     <div *ngIf="env.project" padding>
-        <button ion-button full color="primary" padding round>Iniciar trabalho</button>
-        <button ion-button full color="light" padding round style="margin-top: 15px">Finalizar trabalho</button>
+        <button
+            ion-button
+            full
+            color="primary"
+            padding
+            round
+            (click)="startJob()">
+            Iniciar trabalho
+        </button>
+
+        <button
+            ion-button
+            full
+            color="light"
+            padding
+            round
+            style="margin-top: 15px"
+            (click)="endJob()">
+            Finalizar trabalho
+        </button>
+
+        <br>
+        <hr>
+
+        <ion-grid align-items-center>
+            <ion-row>
+                <ion-col style="background-color: aliceblue; text-align: center;">
+                    <b>Períodos de trabalho</b>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col text-center>
+                    Data
+                </ion-col>
+                <ion-col text-center>
+                    Início
+                </ion-col>
+                <ion-col text-center>
+                    Fim
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngFor="let r of registers">
+                <ion-col text-center>
+                    <small>{{ r.created_at }}</small>
+                </ion-col>
+                <ion-col text-center>
+                    <small>{{ r.start }}</small>
+                </ion-col>
+                <ion-col text-center>
+                    <small>{{ r.end }}</small>
+                </ion-col>
+            </ion-row>
+          </ion-grid>
     </div>
 
     <div *ngIf="!env.project" padding>

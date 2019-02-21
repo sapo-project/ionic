@@ -11,6 +11,7 @@ import { UserService } from './commons/services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectComponent } from './components/project/project.component';
 import { ProjectService } from './commons/services/project.service';
+import { RegisterService } from './commons/services/register.service';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import { ProjectService } from './commons/services/project.service';
         SplashScreen,
         UserService,
         ProjectService,
+        RegisterService,
         {provide: ErrorHandler, useClass: IonicErrorHandler}
     ]
 })
